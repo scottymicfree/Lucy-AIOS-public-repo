@@ -1,0 +1,30 @@
+{
+  "project": "Lucy AIOS Public",
+  "purpose": "Public architecture, proof-of-concept, technical review, and community front door",
+  "canonical_private_repo": "scottymicfree/lucy-aios",
+  "generated_files": [
+    ".github/ISSUE_TEMPLATE/architecture-review.md",
+    ".github/ISSUE_TEMPLATE/evidence-gap.md",
+    ".github/pull_request_template.md",
+    ".gitignore",
+    "ARCHITECTURE.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "GOVERNANCE.md",
+    "LICENSE",
+    "PROOF_OF_CONCEPT.md",
+    "README.md",
+    "ROADMAP.md",
+    "SECURITY.md",
+    "assets/README.md",
+    "docs/CLAIMS_AND_EVIDENCE.md",
+    "docs/TERMINOLOGY.md",
+    "examples/governed_file_write/README.md",
+    "examples/governed_process_read/README.md"
+  ],
+  "notes": [
+    "Canonical Lucy source remains private.",
+    "Public visibility does not imply an open-source license.",
+    "Replace/add sanitized screenshots and run evidence before announcing broadly."
+  ]
+}

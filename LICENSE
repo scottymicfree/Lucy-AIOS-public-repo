@@ -1,0 +1,34 @@
+Lucy AIOS Public Repository Materials
+Copyright (c) 2026 Randy Webb. All rights reserved.
+
+IMPORTANT: PUBLICLY VIEWABLE DOES NOT MEAN OPEN SOURCE.
+
+This repository contains public documentation, diagrams, proof-of-concept
+descriptions, examples, research notes, and related materials concerning
+Lucy AIOS.
+
+Unless a specific file or component states otherwise, no license is granted
+to copy, modify, distribute, sublicense, sell, commercialize, or create
+derivative products from Lucy AIOS or from unpublished Lucy AIOS source code.
+
+Nothing in this repository grants rights to the private or canonical Lucy
+AIOS implementation, E.M.M.A. implementation, security systems, proprietary
+source code, unpublished tests, private prompts, private data models, or
+other non-public components.
+
+You may link to this repository and quote brief portions for commentary,
+criticism, technical discussion, or other uses allowed by applicable law.
+
+Contributions submitted to this repository are submitted with the
+contributor's permission for Randy Webb to use, reproduce, modify, publish,
+distribute, and incorporate them into Lucy AIOS and related documentation.
+Contributors retain rights they otherwise hold in their own original work.
+
+Third-party software, standards, trademarks, research, and other referenced
+materials remain subject to their respective owners' terms.
+
+THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED.
+
+For licensing or collaboration inquiries:
+Randy Webb <scottymicfree@gmail.com>
