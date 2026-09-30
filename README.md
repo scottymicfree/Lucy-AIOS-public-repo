@@ -4,13 +4,30 @@
 
 **Lucy AIOS is an experimental personal AI operating architecture designed around a simple rule: intelligence may adapt, but authority must remain governed.**
 
-Lucy is not intended to be a chatbot with more tools. The project explores what happens when local AI reasoning, memory, agents, machine control, simulation, resource management, verification, and evidence are treated as parts of one governed operating system.
+Lucy is not intended to be a chatbot with more tools. The project explores what happens when local AI reasoning, memory, specialist models, machine control, software engineering, simulation, resource management, security observation, verification, and durable evidence are treated as parts of one governed operating system.
 
 > **Observe → Understand → Propose → Govern → Execute → Verify → Record**
 
-This repository is the **public front door** for Lucy AIOS. It contains architecture documentation, proof-of-concept material, public research, demonstrations, and contribution guidance.
+This repository is the **public front door** for Lucy AIOS. It contains public architecture documentation, proof-of-concept material, selected verification claims, research direction, and contribution guidance.
 
-The canonical Lucy AIOS development repository is private.
+The canonical Lucy AIOS development repository remains private.
+
+---
+
+## The short version
+
+Lucy is being built around one core separation:
+
+- **Intelligence** may reason, plan, critique, research, and propose.
+- **E.M.M.A.** governs authority and durable evidence.
+- **Helix** is the governed engineering workspace.
+- **Specialists such as Sol and Codex** may contribute architecture or implementation proposals.
+- **Lucy owns task identity, context, approval, execution, verification, and evidence.**
+- **Eagle Eye** observes important security and prompt/execution boundaries.
+- **Governed Sandbox Broker** executes bounded software jobs in isolation.
+- **R1 Cognitive Resource Fabric** is the resource-awareness layer for compute, provenance, and execution eligibility.
+
+The architecture is intentionally designed so that adding a smarter model does not silently create a more powerful executor.
 
 ---
 
@@ -22,17 +39,69 @@ Lucy is being built around a different question:
 
 > **How can an AI system become more capable over time without quietly becoming more powerful than its owner intended?**
 
-Lucy separates:
+Lucy separates cognition, authority, execution, verification, and evidence.
 
-- **Cognition** — what the system knows, reasons about, remembers, and proposes.
-- **Authority** — what the system is permitted to do.
-- **Execution** — what actually happens on the machine.
-- **Verification** — whether the requested effect really occurred.
-- **Evidence** — what can later be inspected and audited.
-
-A core design invariant is:
+A central invariant is:
 
 > **Memory may change behavioral context. Memory may not change authority.**
+
+---
+
+## Lucy, E.M.M.A., Helix, Sol, and Codex
+
+### Lucy
+
+Lucy is the operating architecture and owner-facing system. Lucy carries task identity, context, capability resolution, governance coordination, execution correlation, evidence, and presentation.
+
+### E.M.M.A.
+
+**Enhanced Machine Mind Architecture** is Lucy's governance and evidence spine. It keeps intelligence separate from permission and preserves durable records of important decisions and outcomes.
+
+### Helix
+
+Helix is Lucy's **governed agentic software-engineering environment**.
+
+Its intended lifecycle is:
+
+    engineering request
+          ↓
+    Lucy admission + task identity
+          ↓
+    bounded PrepareContext
+          ↓
+    specialist review / proposal
+          ↓
+    typed engineering work
+          ↓
+    Lucy governance + owner approval
+          ↓
+    sandboxed execution
+          ↓
+    independent verification
+          ↓
+    durable evidence
+          ↓
+    Helix result
+
+Helix does not become an independent root of trust. It proposes and manages engineering work inside Lucy's governance model.
+
+See [HELIX.md](HELIX.md).
+
+### Sol
+
+**SOL_ARCHITECT** is the architecture/review specialist role in the current Helix design. It analyzes architecture, interfaces, risks, tests, and tradeoffs.
+
+Its output is treated as **unverified model output**, not executable instruction.
+
+### Codex
+
+**CODEX_BUILDER** is the engineering specialist role that can turn Lucy-recorded architectural guidance into an implementation and test proposal.
+
+Codex does not gain execution authority from producing code or a build plan. Any later work must re-enter Lucy's governed Helix execution path.
+
+### Eagle Eye
+
+Eagle Eye is the security-observation layer used around sensitive prompt, admission, preparation, submission, and execution boundaries. It observes and records; it does not become a second executor.
 
 ---
 
@@ -41,123 +110,170 @@ A core design invariant is:
 ### Local-first by design
 Lucy is intended to keep private context and ordinary reasoning on owner-controlled hardware whenever practical.
 
+### One Lucy, many specialists
+Models and agents may specialize, but Lucy remains the shared authority and context owner.
+
 ### Governed execution
-Tools and agents do not become independent authorities. Effectful actions pass through runtime governance before execution.
+Tools, models, agents, and Helix do not become independent authorities. Effectful work must pass through runtime governance before execution.
 
 ### Evidence over assumption
-A reported action is not automatically treated as a verified result. Lucy is designed to distinguish intent, execution, verification, and evidence.
+Lucy distinguishes intent, proposal, approval, execution, verification, and durable evidence.
 
-### One Lucy, many specialists
-Specialized agents may propose work, research, code, simulate, or analyze. They do not become separate autonomous owners of context or authority.
+### Human approval remains meaningful
+Approval is tied to a specific governed action or Run rather than treated as generic UI text.
 
 ### Resource-aware cognition
-Lucy is being developed to reason not only about a task, but also about the machine resources available to perform it.
+Lucy includes ongoing work on **R1 Cognitive Resource Fabric**: model/provider provenance, resource pressure, execution eligibility, and compute-aware task decisions.
+
+### Sandboxed engineering
+Governed software jobs are designed to run through a bounded Sandbox Broker with isolation, restricted network behavior, separate workspaces, and independent verification.
 
 ### Simulation and world understanding
-The broader Lucy project includes work involving simulation, world-state data, Earth observations, OpenUSD/Omniverse foundations, and digital-twin concepts.
+The broader Lucy project includes Earth observations, OpenUSD/Omniverse foundations, world-state history, prediction ledgers, and digital-twin research.
 
 ---
 
 ## Public architecture at a glance
 
-```mermaid
-flowchart LR
-    U[Human / Input] --> C[Context + Intent]
-    C --> R[Reasoning / Planning]
-    R --> P[Typed Proposal]
-    P --> G[E.M.M.A. Governance]
-    G -->|approved| X[Governed Execution]
-    G -->|blocked / approval required| U
-    X --> V[Verification]
-    V --> E[Evidence Ledger]
-    E --> M[Eligible Learning / Memory]
-```
+    Human / Input
+          ↓
+    Lucy Task + Context Identity
+          ↓
+    Cognition / Planning ←→ Helix Engineering Context
+          ↓
+    Specialists: Sol architecture / Codex build proposal
+          ↓
+    Typed Proposal
+          ↓
+    E.M.M.A. Governance
+       ↙          ↘
+    Blocked     Owner Approval
+                    ↓
+            Governed Execution
+                    ↓
+         Sandbox / Native Capability
+                    ↓
+        Independent Verification
+                    ↓
+            E.M.M.A. Evidence
+                    ↓
+      Presentation / Eligible Learning
 
-The important part is not the arrows. It is the separation of responsibilities.
+**Eagle Eye observes important boundaries throughout this path.**
 
 A planner may propose an action.
 
-A model may explain an action.
+A specialist may recommend an architecture.
 
-An agent may prepare an action.
+Codex may propose an implementation.
 
-**None of those facts alone grant permission to perform the action.**
+Helix may prepare engineering work.
 
----
-
-## Proof-of-concept
-
-The public proof material is organized around two small demonstrations:
-
-### 1. Governed read
-
-```text
-User: list processes
-
-Intent
-  ↓
-Capability resolution
-  ↓
-Read-only risk classification
-  ↓
-Governed execution
-  ↓
-Machine result
-  ↓
-Evidence / result presentation
-```
-
-See: [`examples/governed_process_read/`](examples/governed_process_read/)
-
-### 2. Governed write
-
-```text
-User: create a file
-
-Intent
-  ↓
-Capability resolution
-  ↓
-Effectful action detected
-  ↓
-Approval / policy gate
-  ↓
-Execution
-  ↓
-Verification
-  ↓
-Evidence record
-```
-
-See: [`examples/governed_file_write/`](examples/governed_file_write/)
-
-These examples document the architectural contract. They are not substitutes for the private canonical runtime.
+**None of those facts alone grant permission to execute it.**
 
 ---
 
-## Current project status
+## Current verification picture
 
 Lucy is an active experimental system, not a finished commercial product.
+
+Selected current internal verification evidence includes:
+
+- **Lucy Helix specialist/admission contract lane:** 106 tests passing
+- **Lucy owner-approved governed round-trip lane:** 6 tests passing
+- **Helix Gate 4 / specialist preflight:** 83 tests passing
+- **Helix TypeScript compile:** passing
+- **Helix production dashboard build:** passing
+- **Helix production server bundle:** passing
+
+Those results demonstrate specific contracts and wiring. They do **not** mean every Lucy subsystem is production-ready.
+
+The project intentionally distinguishes:
+
+> **designed ≠ built ≠ wired ≠ verified ≠ live-proven ≠ production-ready**
+
+See [CURRENT_STATUS.md](CURRENT_STATUS.md).
+
+---
+
+## Proof-of-concept surfaces
+
+### Governed read
+
+    User request
+      ↓
+    Intent + task identity
+      ↓
+    Capability resolution
+      ↓
+    Read-only risk classification
+      ↓
+    Governed execution
+      ↓
+    Machine result + evidence
+
+### Governed write
+
+    User request
+      ↓
+    Effectful capability
+      ↓
+    E.M.M.A. policy / owner approval
+      ↓
+    Execution
+      ↓
+    Verification
+      ↓
+    Evidence record
+
+### Governed Helix engineering
+
+    Helix request
+      ↓
+    Lucy admission
+      ↓
+    PrepareContext
+      ↓
+    Specialist architecture / build proposal
+      ↓
+    PreparedBundle
+      ↓
+    E.M.M.A. + owner approval
+      ↓
+    Governed Sandbox Broker
+      ↓
+    Independent verification
+      ↓
+    Helix evidence receipt
+
+See [PROOF_OF_CONCEPT.md](PROOF_OF_CONCEPT.md).
+
+---
+
+## Current public architecture areas
 
 Publicly documented work includes:
 
 - local-first model orchestration
-- governed machine capabilities
-- E.M.M.A. governance and evidence concepts
-- capability classification
-- contextual task/mode identity
-- agent participation boundaries
-- resource-aware cognition research
-- sandboxed execution
+- E.M.M.A. governance and evidence
+- contextual task and mode identity
+- capability classification and typed proposals
+- R1 Cognitive Resource Fabric
+- specialist participation boundaries
+- Sol / Codex specialist orchestration
+- Helix governed software-engineering workflows
+- owner-bound approval continuation
+- Governed Sandbox Broker
+- Eagle Eye security observation
 - verification-oriented execution design
-- graph/RAG and competency work
-- simulation and world-state systems
-- Earth observation / planetary-data foundations
-- software-development and training workflows
+- graph/RAG and competency systems
+- professional handbooks and quality gates
+- simulation / World Studio concepts
+- OpenUSD / Omniverse foundations
+- Earth observation and planetary-data ingestion
+- prediction and evidence ledgers
 
-Some components are mature enough to demonstrate repeatedly. Others are experimental, partially integrated, or research-stage.
-
-**Built, wired, verified, and production-ready are intentionally treated as different claims.**
+Some components are repeatably demonstrated. Others remain experimental, partially integrated, or research-stage.
 
 ---
 
@@ -168,68 +284,75 @@ Some components are mature enough to demonstrate repeatedly. Others are experime
 - a public technical overview
 - an architecture reference
 - a proof-of-concept surface
+- a current-status and evidence index
 - a place for discussion and technical review
-- a place to publish selected research and evidence
 - a public roadmap
 - a way for contributors and reviewers to understand where help is useful
 
 ### This repository is not
 
 - the canonical Lucy AIOS source tree
-- permission to copy or commercialize the private Lucy core
+- the private E.M.M.A. implementation
+- the private Helix runtime source tree
+- permission to copy or commercialize unpublished Lucy components
 - a claim that every documented subsystem is production complete
-- a cloud-hosted Lucy service
+- a hosted Lucy service
 - an autonomous system that removes human authority
 
 ---
 
 ## Start here
 
-If you have 5 minutes:
+If you have 10 minutes:
 
-1. Read [`ARCHITECTURE.md`](ARCHITECTURE.md)
-2. Read [`PROOF_OF_CONCEPT.md`](PROOF_OF_CONCEPT.md)
-3. Read [`GOVERNANCE.md`](GOVERNANCE.md)
+1. [ARCHITECTURE.md](ARCHITECTURE.md)
+2. [HELIX.md](HELIX.md)
+3. [CURRENT_STATUS.md](CURRENT_STATUS.md)
+4. [GOVERNANCE.md](GOVERNANCE.md)
+5. [PROOF_OF_CONCEPT.md](PROOF_OF_CONCEPT.md)
 
 If you want to challenge the design:
 
-4. Read [`SECURITY.md`](SECURITY.md)
-5. Open a discussion or issue with a concrete failure mode
-6. Tell us what would falsify a claim
+6. [SECURITY.md](SECURITY.md)
+7. Open an issue with a concrete failure mode
+8. Tell us what evidence would falsify a claim
 
 If you want to contribute:
 
-7. Read [`CONTRIBUTING.md`](CONTRIBUTING.md)
-8. Check [`ROADMAP.md`](ROADMAP.md)
+9. [CONTRIBUTING.md](CONTRIBUTING.md)
+10. [ROADMAP.md](ROADMAP.md)
 
 ---
 
 ## Principles
 
 1. **Human authority remains primary.**
-2. **Agents propose; governed runtime decides whether execution may proceed.**
-3. **Memory does not grant permission.**
-4. **Verification matters more than fluent claims.**
-5. **Evidence should survive after a model response disappears.**
-6. **Local-first is an architectural preference, not a marketing checkbox.**
-7. **Experimental work should be labeled honestly.**
-8. **The system should be inspectable by its owner.**
+2. **Lucy remains the single governed authority surface.**
+3. **Agents and specialist models propose; they do not self-authorize.**
+4. **Memory does not grant permission.**
+5. **Approval is not verification.**
+6. **Verification matters more than fluent claims.**
+7. **Evidence should survive after a model response disappears.**
+8. **Local-first is an architectural preference, not a marketing checkbox.**
+9. **Experimental work should be labeled honestly.**
+10. **The system should be inspectable by its owner.**
 
 ---
 
 ## Technical review is welcome
 
-The most useful contribution at this stage is not praise.
-
-It is a reproducible challenge:
+Useful challenges include:
 
 - Where can authority leak?
 - Where is a verifier missing?
-- Where does context become ambiguous?
-- Where can one agent influence another improperly?
-- Where does an execution claim lack evidence?
+- Can Helix accidentally become a second executor?
+- Can a specialist influence another without Lucy recording the handoff?
+- Can a stale approval be applied to the wrong Run?
+- Where can context cross task boundaries?
+- Where can memory influence permission?
+- Where does a claimed execution lack evidence?
 - Which architectural boundary fails under concurrency?
-- Which design assumption cannot be demonstrated?
+- Which claim is stronger than the available proof?
 
 If you find one, open an issue.
 
@@ -239,9 +362,9 @@ If you find one, open an issue.
 
 Lucy AIOS itself remains proprietary unless a component is explicitly released under another license.
 
-This public repository does **not** grant an open-source license to the private Lucy AIOS source code, E.M.M.A. implementation, or other unpublished components.
+This public repository does **not** grant an open-source license to the private Lucy AIOS source code, E.M.M.A. implementation, Helix implementation, or other unpublished components.
 
-See [`LICENSE`](LICENSE).
+See [LICENSE](LICENSE).
 
 ---
 
@@ -251,10 +374,10 @@ See [`LICENSE`](LICENSE).
 Independent Technology Developer  
 Creator of Lucy AIOS and E.M.M.A.
 
-GitHub: `scottymicfree`
+GitHub: scottymicfree
 
 ---
 
 ## Project philosophy
 
-> A capable AI should be able to learn more about its owner without silently gaining more authority over its owner.
+> **A capable AI should be able to learn more, reason better, and use stronger specialists without silently gaining more authority over its owner.**
