@@ -1,30 +1,57 @@
 {
   "project": "Lucy AIOS Public",
-  "purpose": "Public architecture, proof-of-concept, technical review, and community front door",
+  "status_date": "2026-09-30",
+  "purpose": "Public architecture, proof-of-concept, current verification status, technical review, and community front door",
   "canonical_private_repo": "scottymicfree/lucy-aios",
-  "generated_files": [
-    ".github/ISSUE_TEMPLATE/architecture-review.md",
-    ".github/ISSUE_TEMPLATE/evidence-gap.md",
-    ".github/pull_request_template.md",
+  "companion_private_systems": [
+    "Lucy AIOS canonical runtime",
+    "E.M.M.A. governance and evidence implementation",
+    "Helix governed engineering runtime"
+  ],
+  "public_architecture_topics": [
+    "Lucy AIOS",
+    "E.M.M.A.",
+    "Helix",
+    "SOL_ARCHITECT",
+    "CODEX_BUILDER",
+    "Eagle Eye",
+    "R1 Cognitive Resource Fabric",
+    "Governed Sandbox Broker",
+    "task and context identity",
+    "PrepareContext",
+    "PreparedBundle",
+    "owner-bound approval",
+    "independent verification",
+    "competency graph and professional handbooks",
+    "OpenUSD / Omniverse / Earth observation research"
+  ],
+  "current_files": [
     ".gitignore",
     "ARCHITECTURE.md",
     "CODE_OF_CONDUCT.md",
     "CONTRIBUTING.md",
+    "CURRENT_STATUS.md",
     "GOVERNANCE.md",
+    "HELIX.md",
     "LICENSE",
     "PROOF_OF_CONCEPT.md",
+    "PUBLIC_REPO_MANIFEST.json",
     "README.md",
     "ROADMAP.md",
-    "SECURITY.md",
-    "assets/README.md",
-    "docs/CLAIMS_AND_EVIDENCE.md",
-    "docs/TERMINOLOGY.md",
-    "examples/governed_file_write/README.md",
-    "examples/governed_process_read/README.md"
+    "SECURITY.md"
   ],
+  "verification_snapshot": {
+    "lucy_specialist_admission_contracts": "106 passing",
+    "lucy_owner_approved_helix_roundtrip": "6 passing",
+    "helix_gate4_specialist_preflight": "83 passing",
+    "helix_typescript_compile": "passing",
+    "helix_production_dashboard_build": "passing",
+    "helix_production_server_bundle": "passing"
+  },
   "notes": [
     "Canonical Lucy source remains private.",
     "Public visibility does not imply an open-source license.",
-    "Replace/add sanitized screenshots and run evidence before announcing broadly."
+    "Status claims distinguish designed, built, wired, verified, live-proven, and production-ready.",
+    "Machine-specific paths, secrets, credentials, and unnecessary private-core implementation details are intentionally omitted."
   ]
 }
