@@ -2,31 +2,47 @@
 
 ## 1. Architectural objective
 
-Lucy AIOS explores an owner-controlled AI operating architecture in which cognition, authority, execution, verification, and evidence are separate concerns.
+Lucy AIOS explores an owner-controlled AI operating architecture in which cognition, specialist intelligence, authority, execution, verification, and evidence are separate concerns.
 
 The system is designed so that increasing model capability does not automatically increase runtime authority.
+
+A compact statement of the architecture is:
+
+> **Intelligence proposes. Lucy binds context. E.M.M.A. governs. Execution acts. Verification proves. Evidence remembers.**
 
 ---
 
 ## 2. Core execution path
 
-```mermaid
-flowchart TD
-    A[Input / Observation] --> B[Context Package]
-    B --> C[Intent + Capability Resolution]
-    C --> D[Reasoning / Planning]
-    D --> E[Typed Work Proposal]
-    E --> F[E.M.M.A. Governance]
-    F -->|deny| G[Blocked + Evidence]
-    F -->|approval required| H[Human Approval]
-    H --> F
-    F -->|allow| I[Execution Boundary]
-    I --> J[Tool / Sandbox / Native Bridge]
-    J --> K[Verification]
-    K --> L[Evidence Ledger]
-    L --> M[Presentation]
-    L --> N[Learning Eligibility]
-```
+    Input / Observation
+          ↓
+    Lucy Task + Context Identity
+          ↓
+    Intent + Capability Resolution
+          ↓
+    Reasoning / Planning
+          ↓
+    Optional Specialist Participation
+          ↓
+    Typed Work Proposal
+          ↓
+    E.M.M.A. Governance
+       ↙          ↘
+    Blocked     Human Approval
+                    ↓
+              Authorized Work
+                    ↓
+             Execution Boundary
+                    ↓
+        Native Capability / Sandbox
+                    ↓
+          Independent Verification
+                    ↓
+           E.M.M.A. Evidence
+                    ↓
+     Presentation / Eligible Learning
+
+Eagle Eye may observe important prompt, admission, preparation, submission, and execution boundaries without becoming a second execution authority.
 
 ---
 
@@ -36,9 +52,9 @@ flowchart TD
 
 Responsible for understanding, reasoning, planning, retrieval, task context, competency selection, and specialist participation.
 
-It may influence *what is proposed*.
+It may influence **what is proposed**.
 
-It must not independently determine *what is authorized*.
+It must not independently determine **what is authorized**.
 
 ### Authority plane
 
@@ -55,6 +71,7 @@ The authority plane may consider:
 - approval state
 - trust state
 - applicable policy
+- evidence bindings
 
 The authority plane should remain stable even when the cognitive plane learns or changes.
 
@@ -80,16 +97,19 @@ Examples:
 
 - Was a file actually created?
 - Is the process actually stopped?
+- Did the sandbox job produce the expected artifacts?
 - Did the external operation return the expected object?
-- Did the simulated job complete under the requested constraints?
+- Did the requested test actually pass?
 
 ### Evidence plane
 
-Lucy uses the E.M.M.A. evidence concept to preserve an inspectable record of decisions and outcomes.
+Lucy uses E.M.M.A. to preserve inspectable records of decisions, correlations, and outcomes.
 
 The project intentionally treats:
 
 - requested
+- admitted
+- prepared
 - proposed
 - approved
 - executed
@@ -100,7 +120,7 @@ as different states.
 
 ---
 
-## 4. Agent boundary
+## 4. One Lucy, many specialists
 
 Lucy is designed around **one governed Lucy** rather than a swarm of equal independent executors.
 
@@ -110,56 +130,143 @@ Specialists may:
 - propose
 - analyze
 - draft
-- test
-- simulate
-- code
 - critique
+- inspect
+- design tests
+- propose implementation work
 
 They should not:
 
 - silently grant themselves authority
 - write durable memory as an ungoverned side effect
-- bypass Lucy to communicate hidden state to another agent
+- bypass Lucy to communicate hidden state to another specialist
 - become independent roots of trust
+- turn model output directly into machine-side effects
 
-A specialist's output is input to Lucy's governed process.
+A specialist's output is evidence and input to Lucy's governed process.
 
 ---
 
-## 5. Context identity
+## 5. Helix engineering plane
 
-A serious multi-agent system needs to know *which task* a piece of context belongs to.
+Helix is Lucy's governed software-engineering environment.
 
-Lucy work includes carrying task and mode identity through language ingress, semantic resolution, context queries, and governed-run correlation.
+It is not a second operating system and not an independent executor.
+
+Helix participates in a Lucy-owned lifecycle:
+
+    Helix request
+          ↓
+    Lucy admission
+          ↓
+    task / ticket / lease
+          ↓
+    PrepareContext
+          ↓
+    specialist architecture / build proposal
+          ↓
+    JobSpec + PreparedBundle
+          ↓
+    E.M.M.A. governance
+          ↓
+    owner approval
+          ↓
+    TaskExecutor
+          ↓
+    Governed Sandbox Broker
+          ↓
+    independent verification
+          ↓
+    durable evidence
+          ↓
+    Helix result
+
+Important authority rule:
+
+> **Admission grants recognition and scope. Governance grants permission. Execution produces facts. Verification establishes what actually happened.**
+
+See [HELIX.md](HELIX.md).
+
+---
+
+## 6. Specialist orchestration
+
+The current Helix design defines two public specialist roles.
+
+### SOL_ARCHITECT
+
+Used for:
+
+- architecture
+- interfaces
+- risks
+- test strategy
+- tradeoffs
+
+Sol output is treated as **unverified model output** and authorizes nothing.
+
+### CODEX_BUILDER
+
+Used for:
+
+- implementation planning
+- test planning
+- converting Lucy-recorded architecture into a concrete engineering proposal
+
+Codex cannot consume arbitrary browser-supplied Sol text. The intended handoff is:
+
+    Sol
+      ↓
+    Lucy Run
+      ↓
+    E.M.M.A. specialist receipt
+      ↓
+    Lucy reloads and verifies parent output
+      ↓
+    Codex
+
+This preserves provenance and prevents a hidden agent-to-agent authority channel.
+
+---
+
+## 7. Context identity
+
+A serious multi-agent system needs to know **which task** a piece of context belongs to.
+
+Lucy work carries task and mode identity through language ingress, semantic resolution, context queries, Helix preparation, and governed-run correlation.
 
 This is intended to reduce:
 
 - context leakage between tasks
 - ambiguous referents
 - cross-agent state confusion
+- stale approval reuse
 - orphaned execution evidence
+
+PrepareContext is one example of this principle applied to governed engineering work.
 
 ---
 
-## 6. Cognitive resource fabric
+## 8. R1 Cognitive Resource Fabric
 
-Lucy research includes resource-aware cognition: the idea that task planning should account for machine resources rather than assuming unlimited compute.
+Lucy research includes resource-aware cognition: task planning should account for machine resources and provider identity rather than assuming unlimited compute.
 
-Examples include:
+Current R1 areas include:
 
-- model selection
+- provider provenance
+- model identity
+- learning eligibility
 - workload arbitration
 - memory pressure
 - latency
 - GPU / CPU availability
 - execution eligibility
-- measured provider provenance
 
-The goal is not merely to select a model, but to make compute allocation part of the system's operating logic.
+The goal is not merely to select a model, but to make compute allocation part of the operating system's reasoning.
 
 ---
 
-## 7. Competency and professional profiles
+## 9. Competency and professional profiles
 
 Lucy is being designed so that domains can carry structured competencies, handbooks, quality gates, and professional rules without turning the central reasoning layer into one giant monolith.
 
@@ -174,7 +281,42 @@ Competency does not equal authority.
 
 ---
 
-## 8. World and simulation layer
+## 10. Governed sandbox execution
+
+The Governed Sandbox Broker is the bounded execution foundation used for isolated software jobs.
+
+Public architectural goals include:
+
+- bounded operations
+- separate workspaces
+- network denial where required
+- explicit authorization evidence
+- no generic shell authority through Helix
+- post-run verification
+- evidence correlated to the exact governed Run
+
+A model proposal does not call the broker directly.
+
+---
+
+## 11. Eagle Eye security observation
+
+Eagle Eye is the observer/security layer around important boundaries.
+
+Its role is to make suspicious or policy-relevant transitions visible and evidentiary.
+
+It is not:
+
+- a second approval system
+- a second TaskExecutor
+- a replacement for E.M.M.A.
+- independent authority
+
+Public areas include runtime observation, prompt-boundary monitoring, and evidence references around important Helix preparation/submission steps.
+
+---
+
+## 12. World and simulation layer
 
 Lucy research also includes:
 
@@ -184,30 +326,30 @@ Lucy research also includes:
 - Earth observation ingestion
 - planetary-boundary data
 - prediction and simulation ledgers
-- historical context for anomaly detection
+- historical observation context
+- mobility history
+- digital-twin concepts
 
-Observed, predicted, and simulated data should remain distinguishable.
-
----
-
-## 9. Security model
-
-Security work includes:
-
-- governed sandbox execution
-- explicit capability boundaries
-- observer / telemetry concepts
-- prompt-boundary monitoring
-- approval gates
-- local-first data handling
-- evidence and provenance
-
-See [`SECURITY.md`](SECURITY.md).
+Observed, derived, predicted, and simulated data should remain distinguishable.
 
 ---
 
-## 10. Architectural invariant
+## 13. Public status discipline
+
+Lucy intentionally distinguishes:
+
+> **designed ≠ built ≠ wired ≠ verified ≠ live-proven ≠ production-ready**
+
+A CI-verified contract does not automatically prove target-machine integration.
+
+A live execution does not automatically prove every adjacent subsystem.
+
+See [CURRENT_STATUS.md](CURRENT_STATUS.md).
+
+---
+
+## 14. Architectural invariant
 
 The shortest description of Lucy's design is:
 
-> **Intelligence proposes. Governance authorizes. Execution acts. Verification proves. Evidence remembers.**
+> **Stronger intelligence may improve the proposal. It does not inherit the authority to execute it.**
