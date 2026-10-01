@@ -381,3 +381,12 @@ GitHub: scottymicfree
 ## Project philosophy
 
 > **A capable AI should be able to learn more, reason better, and use stronger specialists without silently gaining more authority over its owner.**
+
+
+---
+
+## Research & White Papers
+
+The project now includes a public research-paper index covering **P.E.L.A.P.H., E.M.M.A., AETHERIA / Eagle Eye, the Webb planetary-pressure framework, and the 250-Year Accountability Drift**.
+
+**[Browse the Research & White Papers →](WHITE_PAPERS.md)**
